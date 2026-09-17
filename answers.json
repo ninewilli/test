@@ -1,0 +1,365 @@
+{
+  "answer_sets": {
+    "1.1章节测验": [
+      { "index": 1, "type": "single", "answer": "D", "note": "人与自然" },
+      { "index": 2, "type": "single", "answer": "A", "note": "工程主体的行为规范" },
+      { "index": 3, "type": "single", "answer": "C", "note": "宏观" },
+      { "index": 4, "type": "single", "answer": "A", "note": "人工世界" },
+      { "index": 5, "type": "single", "answer": "C", "note": "所有权" },
+      { "index": 6, "type": "single", "answer": "D", "note": "时代进步性" },
+      { "index": 7, "type": "single", "answer": "C", "note": "工程共同体" },
+      { "index": 8, "type": "judge", "answer": "对" },
+      { "index": 9, "type": "judge", "answer": "错" },
+      { "index": 10, "type": "text", "answer": "伦理判断" },
+      { "index": 11, "type": "text", "answer": "延续性" }
+    ],
+    "1.2章节测验": [
+      { "index": 1, "type": "multiple", "answer": ["B", "C", "D"], "answer_text": ["社会", "经济", "环境"], "note": "社会、经济、环境" },
+      { "index": 2, "type": "judge", "answer": "对" }
+    ],
+    "1.3章节测验": [
+      { "index": 1, "type": "single", "answer": "A", "note": "伦理意图" },
+      { "index": 2, "type": "single", "answer": "B", "note": "伦理感知能力" },
+      { "index": 3, "type": "text", "answer": "负责任停滞" }
+    ],
+    "2.1章节测验": [
+      { "index": 1, "type": "single", "answer": "A", "note": "环境因素" },
+      { "index": 2, "type": "single", "answer": "A", "note": "行为可能造成的伤害和益处的总和" },
+      { "index": 3, "type": "single", "answer": "A", "note": "个人道德发展层次" },
+      { "index": 4, "type": "single", "answer": "B", "note": "错误" },
+      { "index": 5, "type": "single", "answer": "B", "note": "错误" },
+      {
+        "index": 6,
+        "type": "multiple",
+        "answer": ["B", "C", "D"],
+        "answer_text": ["时间即刻性", "亲密性", "效应可能性"],
+        "note": "时间即刻性、亲密性、效应可能性"
+      },
+      { "index": 7, "type": "text", "answer": "部门亚文化" },
+      { "index": 8, "type": "text", "answer": "组织文化" }
+    ],
+    "2.2章节测验": [
+      { "index": 1, "type": "single", "answer": "C", "note": "事实之维还原真相，价值之维重建信任" },
+      { "index": 2, "type": "single", "answer": "D", "note": "什么样的伦理思考是相关的?" },
+      { "index": 3, "type": "single", "answer": "B", "note": "伦理原则" },
+      { "index": 4, "type": "single", "answer": "B", "note": "程序公正" },
+      { "index": 5, "type": "single", "answer": "B", "note": "微观" }
+    ],
+    "2.3章节测验": [
+      { "index": 1, "type": "text", "answer": "创造性的中间方式" }
+    ],
+    "3.1章节测验": [
+      { "index": 1, "type": "single", "answer": "B", "note": "不确定性" },
+      { "index": 2, "type": "single", "answer": "A", "note": "损失概率" },
+      { "index": 3, "type": "single", "answer": "D", "note": "人" }
+    ],
+    "3.2章节测验": [
+      { "index": 1, "type": "single", "answer": "C", "note": "培育组织的安全文化" },
+      {
+        "index": 2,
+        "type": "multiple",
+        "answer": ["A", "B", "C", "D"],
+        "answer_text": [
+          "具有职业胜任力并不断精进专业能力",
+          "负责任地设计、建造与创新",
+          "发现与安全有关的问题时有告知的义务，必要时“吹哨”",
+          "保持虚心开放的心态，积极与公众等相关方进行沟通"
+        ]
+      },
+      {
+        "index": 3,
+        "type": "multiple",
+        "answer": ["A", "B", "C", "D"],
+        "answer_text": [
+          "从被动接受到主动参与、影响工程决策",
+          "以开放的心态接受工程相关信息",
+          "提高理解工程语言的能力",
+          "建立维护自身权益的意识"
+        ]
+      }
+    ],
+    "4.1章节测验": [
+      { "index": 1, "type": "single", "answer": "A", "note": "诚实意味着信息的正确性" },
+      {
+        "index": 2,
+        "type": "multiple",
+        "answer": ["A", "B", "C"],
+        "answer_text": ["关注社会的发展与需求，精益专业知识", "保持开放的心态，与公众平等对话与沟通", "告知公众可能危及他们安全、健康与福祉的信息"]
+      },
+      {
+        "index": 3,
+        "type": "multiple",
+        "answer": ["A", "B", "C", "D"],
+        "answer_text": [
+          "恪尽职守，按时保质地完成本职工作",
+          "为雇主(组织)与客户的利益与发展着做前瞻性思考与决策部署",
+          "保守雇主(组织)与客户的商业机密与技术机密",
+          "避免利益冲突，不能避免时告知利益冲突"
+        ]
+      },
+      { "index": 4, "type": "multiple", "answer": ["A", "B", "C", "D"], "answer_text": ["弄虚作假", "迟报信息", "谎报信息", "瞒报信息"] },
+      { "index": 5, "type": "judge", "answer": "错" },
+      { "index": 6, "type": "judge", "answer": "对" },
+      { "index": 7, "type": "judge", "answer": "错" },
+      { "index": 8, "type": "text", "answer": "假忠" },
+      { "index": 9, "type": "text", "answer": "利益冲突" }
+    ],
+    "5.1章节测验": [
+      { "index": 1, "type": "judge", "answer": "错" },
+      { "index": 2, "type": "single", "answer": "B", "note": "环境污染控制理论、技术、措施和政策" },
+      {
+        "index": 3,
+        "type": "multiple",
+        "answer": ["A", "B", "C", "D"],
+        "answer_text": ["人口规模逐渐增大", "人类改造自然的技术手段不断加强", "资源与环境的威胁越发严峻", "环境保护最大的受益方是人类自己"]
+      }
+    ],
+    "5.2章节测验": [
+      { "index": 1, "type": "text", "answer": "环境保护" },
+      { "index": 2, "type": "judge", "answer": "错" },
+      { "index": 3, "type": "multiple", "answer": ["A", "B", "C", "D"], "answer_text": ["环境驱动", "政策驱动", "市场驱动", "技术驱动"] }
+    ],
+    "5.3章节测验": [
+      { "index": 1, "type": "multiple", "answer": ["A", "B", "C"], "answer_text": ["环保造假", "环保炒作", "环境工程中的违规操作"] },
+      { "index": 2, "type": "multiple", "answer": ["A", "C", "D"], "answer_text": ["加强监督，使环保督察检查常态化、制度化", "发挥群众监督的作用", "加大违法必究、造假问责的惩戒力度"] },
+      { "index": 3, "type": "judge", "answer": "错" }
+    ],
+    "5.4章节测验": [
+      { "index": 1, "type": "judge", "answer": "错" },
+      { "index": 2, "type": "single", "answer": "B" },
+      { "index": 3, "type": "text", "answer": "环境影响" }
+    ],
+    "5.5章节测验": [
+      { "index": 1, "type": "text", "answer": ["环境", "经济"] },
+      { "index": 2, "type": "judge", "answer": "对" },
+      { "index": 3, "type": "multiple", "answer": ["A", "B", "C", "D"] }
+    ],
+    "6.1章节测验": [
+      { "index": 1, "type": "single", "answer": "C", "note": "重视生物伦理问题，会限制生物工程技术的发展" },
+      { "index": 2, "type": "single", "answer": "D", "note": "现代先进生物医学技术，可以干预人的生老病死自然进程，人的生老病死甚至有可能为人工安排所替代" },
+      { "index": 3, "type": "single", "answer": "D", "note": "尊重原则" },
+      { "index": 4, "type": "single", "answer": "B", "note": "公正原则往往强调对弱者和弱势群体的保护" },
+      { "index": 5, "type": "single", "answer": "B", "note": "使用歧视性语言" }
+    ],
+    "6.2章节测验": [
+      { "index": 1, "type": "single", "answer": "B", "note": "限制转基因作物的种植面积" },
+      { "index": 2, "type": "single", "answer": "C", "note": "在销售过程中不标注转基因成分" },
+      { "index": 3, "type": "single", "answer": "C", "note": "实施转基因强制标签是为了公平" },
+      {
+        "index": 4,
+        "type": "multiple",
+        "answer": ["A", "B", "C", "D"],
+        "answer_text": [
+          "转基因植物经济和生态效应显著",
+          "为了国家的粮食安全，要加强转基因技术的研发",
+          "转基因植物的种植要在确保安全的条件下慎重推广",
+          "个人或企业种植转基因作物需要得到有关部门的审批，不得私下种植"
+        ],
+        "note": "转基因植物经济和生态效应显著；为了国家的粮食安全，要加强转基因技术的研发；转基因植物的种植要在确保安全的条件下慎重推广；个人或企业种植转基因作物需要得到有关部门的审批，不得私下种植"
+      },
+      {
+        "index": 5,
+        "type": "multiple",
+        "answer": ["A", "B", "C", "D"],
+        "answer_text": [
+          "《农业转基因生物安全评价管理办法》",
+          "《农业转基因生物进口安全管理办法》",
+          "《农业转基因生物标识管理办法》",
+          "《农业转基因生物加工审批办法》"
+        ],
+        "note": "《农业转基因生物安全评价管理办法》；《农业转基因生物进口安全管理办法》；《农业转基因生物标识管理办法》；《农业转基因生物加工审批办法》"
+      }
+    ],
+    "6.3章节测验": [
+      { "index": 1, "type": "single", "answer": "D", "note": "通过殴打、火烧、电击、断食等方法训练动物" },
+      { "index": 2, "type": "single", "answer": "D", "note": "减少实验动物的处理时间" },
+      { "index": 3, "type": "single", "answer": "A", "note": "对于医院废弃的胚胎可以随意使用，无需伦理委员会的批准" },
+      { "index": 4, "type": "single", "answer": "C", "note": "克隆人违背了伦理规则，挑战了人的尊严" },
+      {
+        "index": 5,
+        "type": "multiple",
+        "answer": ["A", "B", "C", "D"],
+        "answer_text": [
+          "知情同意",
+          "公平地选择受试者",
+          "选择安全有效的干细胞",
+          "研究人员对受试者的权益、安全和健康的考虑高于科学和社会利益"
+        ],
+        "note": "知情同意；公平地选择受试者；选择安全有效的干细胞；研究人员对受试者的权益、安全和健康的考虑高于科学和社会利益"
+      }
+    ],
+    "7.1章节测验": [
+      { "index": 1, "question": "重要资料和重要机密资料应定期", "type": "text", "answer": "备份" },
+      { "index": 2, "question": "信息安全三大目标", "type": "text", "answer": ["机密性", "完整性", "可用性"] },
+      { "index": 3, "question": "当发生信息安全事件时", "type": "text", "answer": "直接主管" }
+    ],
+    "7.2章节测验": [
+      { "index": 1, "type": "text", "answer": "加密" },
+      { "index": 2, "type": "single", "answer": "A", "note": "隐私边界" },
+      { "index": 3, "type": "multiple", "answer": ["A", "C"], "answer_text": ["尊重他人", "为增进社会福祉尽力"], "note": "尊重他人；为增进社会福祉尽力" }
+    ],
+    "7.3章节测验": [
+      { "index": 1, "type": "single", "answer": "B", "note": "维纳（Norbert Wiener）" },
+      { "index": 2, "type": "multiple", "answer": ["A", "B"], "answer_text": ["劳动", "资本"], "note": "劳动、资本" },
+      { "index": 3, "type": "judge", "answer": "错" }
+    ],
+    "7.4章节测验": [
+      { "index": 1, "type": "single", "answer": "D", "note": "实现自动驾驶的算法代码" },
+      { "index": 2, "type": "multiple", "answer": ["B", "C"], "answer_text": ["私人生活安宁", "不愿为他人知晓"], "note": "私人生活安宁、不愿为他人知晓" },
+      { "index": 3, "type": "multiple", "answer": ["B", "C"], "answer_text": ["正当", "过度"], "note": "正当；过度" }
+    ],
+    "7.5章节测验": [
+      { "index": 1, "type": "text", "answer": "责任与义务" },
+      { "index": 2, "type": "single", "answer": "D", "note": "可变性" },
+      { "index": 3, "type": "judge", "answer": "对" }
+    ],
+    "8.1章节测验": [
+      { "index": 1, "type": "single", "answer": "D" },
+      { "index": 2, "type": "single", "answer": "C" },
+      { "index": 3, "type": "single", "answer": "C" }
+    ],
+    "8.2章节测验": [
+      { "index": 1, "type": "single", "answer": "D" },
+      { "index": 2, "type": "single", "answer": "C" },
+      { "index": 3, "type": "single", "answer": "B" },
+      { "index": 4, "type": "single", "answer": "D" },
+      { "index": 5, "type": "multiple", "answer": ["A", "B", "C", "D"] }
+    ],
+    "8.3章节测验": [
+      { "index": 1, "type": "multiple", "answer": ["A", "B", "C"] },
+      { "index": 2, "type": "multiple", "answer": ["A", "B", "C", "D"] },
+      { "index": 3, "type": "multiple", "answer": ["A", "B", "C"] },
+      { "index": 4, "type": "multiple", "answer": ["A", "B", "C"] },
+      { "index": 5, "type": "multiple", "answer": ["A", "B", "C"] }
+    ],
+    "8.4章节测验": [
+      { "index": 1, "type": "multiple", "answer": ["A", "B", "C"] },
+      { "index": 2, "type": "multiple", "answer": ["A", "B", "C"] }
+    ],
+    "9.1章节测验": [
+      { "index": 1, "type": "single", "answer": "A" },
+      { "index": 2, "type": "single", "answer": "A" }
+    ],
+    "9.2章节测验": [
+      { "index": 1, "type": "single", "answer": "A" },
+      { "index": 2, "type": "single", "answer": "B" },
+      { "index": 3, "type": "single", "answer": "A" },
+      { "index": 4, "type": "single", "answer": "A" },
+      { "index": 5, "type": "single", "answer": "A" },
+      { "index": 6, "type": "single", "answer": "A" },
+      { "index": 7, "type": "single", "answer": "A" },
+      { "index": 8, "type": "single", "answer": "A" },
+      { "index": 9, "type": "single", "answer": "F" }
+    ],
+    "9.3章节测验": [
+      { "index": 1, "type": "single", "answer": "A" }
+    ],
+    "9.4章节测验": [
+      { "index": 1, "type": "single", "answer": "A" },
+      { "index": 2, "type": "single", "answer": "B" }
+    ],
+    "9.5章节测验": [
+      { "index": 1, "type": "single", "answer": "B" }
+    ],
+    "10.1章节测验": [
+      { "index": 1, "type": "text", "answer": ["化学反应", "状态"] },
+      { "index": 2, "type": "single", "answer": "A" },
+      { "index": 3, "type": "multiple", "answer": ["A", "B", "C"] },
+      { "index": 4, "type": "judge", "answer": "错" }
+    ],
+    "10.2章节测验": [
+      { "index": 1, "type": "text", "answer": "人的全面发展" },
+      { "index": 2, "type": "single", "answer": "C" },
+      { "index": 3, "type": "multiple", "answer": ["A", "C", "D"] }
+    ],
+    "10.3章节测验": [
+      { "index": 1, "type": "multiple", "answer": ["A", "C", "D"] },
+      { "index": 2, "type": "multiple", "answer": ["B", "C", "D"] },
+      { "index": 3, "type": "judge", "answer": "错" }
+    ],
+    "10.4章节测验": [
+      { "index": 1, "type": "text", "answer": "对二甲苯" },
+      { "index": 2, "type": "single", "answer": "B" }
+    ],
+    "10.5章节测验": [
+      { "index": 1, "type": "text", "answer": "硝基苯" },
+      { "index": 2, "type": "text", "answer": ["责任", "义务"] },
+      { "index": 3, "type": "multiple", "answer": ["B", "C", "D"] }
+    ],
+    "11.1章节测验": [
+      { "index": 1, "type": "single", "answer": "A" },
+      { "index": 2, "type": "text", "answer": "活度" },
+      { "index": 3, "type": "text", "answer": "伦琴" },
+      { "index": 4, "type": "multiple", "answer": ["A", "B", "C", "D"] },
+      { "index": 5, "type": "judge", "answer": "对" }
+    ],
+    "11.2章节测验": [
+      { "index": 1, "type": "text", "answer": ["时间", "距离", "屏蔽"] },
+      { "index": 2, "type": "text", "answer": ["确定", "随机"] },
+      { "index": 3, "type": "single", "answer": "B" },
+      { "index": 4, "type": "judge", "answer": "对" },
+      { "index": 5, "type": "multiple", "answer": ["A", "B", "C", "D"] }
+    ],
+    "11.3章节测验": [
+      { "index": 1, "type": "multiple", "answer": ["A", "C"] },
+      { "index": 2, "type": "multiple", "answer": ["A", "B", "C", "D"] },
+      { "index": 3, "type": "single", "answer": "A" },
+      { "index": 4, "type": "single", "answer": "D" },
+      { "index": 5, "type": "text", "answer": "邻避" }
+    ]
+  },
+  "chapter_sets": {
+  "661758": "1.1章节测验",
+  "661759": "1.2章节测验",
+  "661760": "1.3章节测验",
+  "661761": "2.1章节测验",
+  "661762": "2.2章节测验",
+  "661763": "2.3章节测验",
+  "661764": "3.1章节测验",
+  "661765": "3.2章节测验",
+  "661766": "4.1章节测验",
+  "661767": "5.1章节测验",
+  "661768": "5.2章节测验",
+  "661769": "5.3章节测验",
+  "661770": "5.4章节测验",
+  "661771": "5.5章节测验",
+  "661772": "6.1章节测验",
+  "661753": "6.2章节测验",
+  "661773": "6.3章节测验",
+  "661774": "7.1章节测验",
+  "661775": "7.2章节测验",
+  "661776": "7.3章节测验",
+  "661777": "7.4章节测验",
+  "661778": "7.5章节测验",
+  "661754": "8.1章节测验",
+  "661755": "8.2章节测验",
+  "661756": "8.3章节测验",
+  "661757": "8.4章节测验",
+  "661779": "9.1章节测验",
+  "661780": "9.2章节测验",
+  "661781": "9.3章节测验",
+  "661782": "9.4章节测验",
+  "661783": "9.5章节测验",
+  "661784": "10.1章节测验",
+  "661785": "10.2章节测验",
+  "661786": "10.3章节测验",
+  "661787": "10.4章节测验",
+  "661788": "10.5章节测验",
+  "661789": "11.1章节测验",
+  "661790": "11.2章节测验",
+  "661791": "11.3章节测验"
+},
+  "sources": [
+    {
+      "author": "_yjk",
+      "url": "https://blog.csdn.net/m0_73213542/article/details/158841820",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "author": "gloria0323",
+      "url": "https://blog.csdn.net/gloria0323/article/details/161047203",
+      "license": "CC BY-SA 4.0",
+      "covers": "8.1章节测验至9.5章节测验"
+    }
+  ]
+}

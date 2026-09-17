@@ -1,0 +1,4 @@
+PyAutoGUI==0.9.54
+pywin32==305.1; sys_platform == "win32"
+selenium==4.15.2
+tqdm==4.66.1
