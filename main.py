@@ -1221,7 +1221,8 @@ def main():
         print("\n>>> 浏览器已打开。")
         print(">>> 请手动扫码登录，并【进入具体的课程章节列表页面】。")
         print(">>> (确保能看到左侧的章节目录)")
-        input(">>> 准备就绪后，请按回车键 (Enter) 开始全自动刷课...")
+        print(">>> 准备就绪后，请按回车键 (Enter) 开始全自动刷课...")
+        input()
     except Exception as e:
         print(f"浏览器启动失败: {e}")
         return

@@ -3,7 +3,11 @@ __pycache__/
 .python*/
 .venv/
 .chrome-profile/
+.gui-config.json
 .pytest_cache/
+build/
+dist/
+*.spec.bak
 
 # Machine-specific browser binaries and diagnostics
 tools/

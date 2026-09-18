@@ -52,6 +52,28 @@ pip install -r requirements.txt
 
 ### 步骤4：运行脚本
 
+推荐使用桌面界面：
+
+```bash
+python gui.py
+```
+
+在界面中填写课程 URL，点击“启动浏览器”；登录并进入课程章节页后，点击“登录完成，开始学习”。运行日志、答案提交开关、登录配置目录和 ChromeDriver 路径均可在界面中管理。
+
+每个文本框右侧的 `×` 可以单独清空内容；“重置表单”会恢复默认配置。
+
+### Windows 打包
+
+安装 PyInstaller 后执行：
+
+```bash
+python -m PyInstaller --clean --noconfirm ucas-mooc-aq.spec
+```
+
+打包结果位于 `dist`，主程序为 `UCAS-MOOC-Assistant.exe`。请保留同目录下的 `UCAS-MOOC-Worker.exe`，它负责后台执行浏览器自动化。
+
+也可以继续使用命令行：
+
 ```bash
 
 # --force 即使没有获取到这个进度条到终止时间，也要进行观看
