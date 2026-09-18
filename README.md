@@ -10,7 +10,7 @@
 
 或者可以直接运行gui.py来跑代码
 
-![Uploading b5eaae119870f2fb585f54a806951a12.png…]()
+<img width="1680" height="1109" alt="b5eaae119870f2fb585f54a806951a12" src="https://github.com/user-attachments/assets/cc415ce4-8f0b-4715-a6f8-daecaa6ac32c" />
 
 
 ### 步骤1：环境准备
