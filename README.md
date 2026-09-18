@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ### 步骤3：获取课程URL
 
 > **重要：需要手动配置课程URL到代码中**
-可以看“https://github.com/HangboZhu/ucas-mooc-automate”
+可以看https://github.com/HangboZhu/ucas-mooc-automate
 1. 进入国科大在线网站 [中国科学院大学网络教学平台](http://mooc.ucas.edu.cn/portal)
 2. 点击右上角"校内登录"
 3. 选择使用手机号登录（Mooc绑定的手机号与密码）
