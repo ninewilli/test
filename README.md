@@ -3,7 +3,7 @@
 
 一个专为中国科学院大学在线慕课平台设计的自动化学习工具，支持按目录顺序自动观看视频、阅读 PPT、填写章节测验，并智能跳过已完成内容。
 [参考自](https://github.com/CJ-xchina/ucas-mooc)
-
+[参考自]([https://github.com/CJ-xchina/ucas-mooc](http://mooc.ucas.edu.cn/portal))
 ### 步骤1：环境准备
 
 确保你的计算机上已经安装了 Python (3.7+) 和 pip ，谷歌浏览器等工具。
