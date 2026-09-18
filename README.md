@@ -38,7 +38,8 @@ pip install -r requirements.txt
 ```bash
 
 # --force 即使没有获取到这个进度条到终止时间，也要进行观看
-python main.py -url XXXX --force
+
+python main.py --url "慕课网址" --force --submit-answers --profile-dir .chrome-profile
 ```
 
 项目内置 `answers.json` 中课程的完整连续处理命令：
