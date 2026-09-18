@@ -6,6 +6,7 @@ from unittest.mock import Mock, patch
 from pathlib import Path
 
 from selenium import webdriver
+from selenium.common.exceptions import StaleElementReferenceException
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import main
@@ -108,6 +109,15 @@ class ChapterMappingTest(unittest.TestCase):
 
         self.assertEqual(main.scan_progress(self.driver, {"quiz1"}), ["video1"])
 
+    def test_scan_timeout_is_failure_not_all_complete(self):
+        driver = Mock()
+        with patch.object(
+            main.WebDriverWait,
+            "until",
+            side_effect=main.TimeoutException(),
+        ):
+            self.assertIsNone(main.scan_progress(driver))
+
     def test_quiz_title_detection_is_case_insensitive(self):
         self.assertTrue(main.is_quiz_title("8.2章节测验"))
         self.assertTrue(main.is_quiz_title("Chapter Quiz"))
@@ -133,6 +143,68 @@ class ChapterMappingTest(unittest.TestCase):
 
         self.assertEqual(answer_set, "8.2章节测验")
         self.assertIn("chapterId=661755", mapping_url)
+
+    def test_snapshots_javascript_chapter_mapping_before_click(self):
+        driver = Mock()
+        target = Mock()
+        row = Mock()
+        target.get_attribute.side_effect = lambda name: {
+            "title": "8.2章节测验",
+            "href": "javascript:void(0)",
+        }.get(name)
+        target.find_element.return_value = row
+
+        def mapping_before_click(*_args):
+            target.click.assert_not_called()
+            return "8.2章节测验", "https://mooc.local/?chapterId=661755"
+
+        with patch.object(main, "get_chapter_elements", return_value=([target], True)), patch.object(
+            main, "catalog_item_is_locked", return_value=False
+        ), patch.object(main, "mapped_answer_set", return_value=None), patch.object(
+            main, "mapped_answer_from_element", side_effect=mapping_before_click
+        ), patch.object(
+            main,
+            "analyze_current_page",
+            return_value={"questions": 1, "videos": 0, "ppts": 0, "quizFrames": 0, "frames": 1},
+        ), patch.object(main, "process_quiz", return_value=True) as process_quiz, patch.object(
+            main.time, "sleep"
+        ):
+            self.assertTrue(
+                main.process_single_chapter(driver, 0, answers_path="answers.json", submit_answers=True)
+            )
+
+        target.click.assert_called_once_with()
+        process_quiz.assert_called_once()
+
+    def test_relocates_catalog_link_when_first_click_goes_stale(self):
+        driver = Mock()
+        stale_target = Mock()
+        fresh_target = Mock()
+        row = Mock()
+        for target in (stale_target, fresh_target):
+            target.get_attribute.side_effect = lambda name: {
+                "title": "8.2章节测验",
+                "href": "https://mooc.local/?chapterId=661755",
+            }.get(name)
+            target.find_element.return_value = row
+        stale_target.click.side_effect = StaleElementReferenceException()
+
+        with patch.object(
+            main, "locate_chapter_link", side_effect=[stale_target, fresh_target]
+        ) as locate, patch.object(
+            main, "catalog_item_is_locked", return_value=False
+        ), patch.object(
+            main, "mapped_answer_set", return_value="8.2章节测验"
+        ), patch.object(
+            main,
+            "analyze_current_page",
+            return_value={"questions": 1, "videos": 0, "ppts": 0, "quizFrames": 0, "frames": 1},
+        ), patch.object(main, "process_quiz", return_value=True), patch.object(main.time, "sleep"):
+            self.assertTrue(main.process_single_chapter(driver, "cur661755", answers_path="answers.json"))
+
+        self.assertEqual(locate.call_count, 2)
+        stale_target.click.assert_called_once_with()
+        fresh_target.click.assert_called_once_with()
 
     def test_completed_task_waits_two_seconds_then_refreshes(self):
         driver = Mock()

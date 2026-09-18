@@ -62,8 +62,18 @@ def create_chrome_driver(
             options=options,
         )
 
-    # Let Selenium Manager match the installed Chrome version first. A cached
-    # driver can be stale after Chrome auto-updates.
+    # Reuse Selenium's local cache first. Selenium Manager can spend a long
+    # time checking the network even when a compatible cached driver exists.
+    if bundled_driver:
+        try:
+            return webdriver.Chrome(
+                service=Service(executable_path=str(bundled_driver)),
+                options=options,
+            )
+        except Exception:
+            pass
+
+    # If the cached driver is stale, let Selenium Manager find a new match.
     try:
         return webdriver.Chrome(options=options)
     except Exception as manager_error:

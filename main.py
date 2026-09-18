@@ -261,6 +261,18 @@ def get_chapter_elements(driver):
     return [], False
 
 
+def locate_chapter_link(driver, chapter_ref):
+    """Resolve a fresh catalog link from a stable index or DOM id."""
+    if isinstance(chapter_ref, int):
+        elements, _ = get_chapter_elements(driver)
+        if chapter_ref >= len(elements):
+            raise NoSuchElementException(f"章节索引越界: {chapter_ref}")
+        return elements[chapter_ref]
+
+    chapter_row = driver.find_element(By.ID, chapter_ref)
+    return chapter_row.find_element(By.TAG_NAME, "a")
+
+
 LOCKED_TEXT_MARKERS = ("未解锁", "尚未解锁", "已锁定", "暂未开放", "未开放")
 def catalog_item_is_locked(driver, row, link=None):
     """识别新版/旧版目录中的未解锁项。"""
@@ -304,7 +316,7 @@ def scan_progress(driver, excluded_refs=None):
         WebDriverWait(driver, 15).until(lambda d: d.find_elements(By.CLASS_NAME, 'onetoone') or d.find_elements(By.CLASS_NAME, 'posCatalog_select'))
     except TimeoutException:
         print("扫描超时：未找到章节列表，请确认已进入课程章节页面。")
-        return []
+        return None
 
     elements, is_new_ui = get_chapter_elements(driver)
     print(f"识别到 {len(elements)} 个章节 (UI模式: {'新版' if is_new_ui else '旧版'})")
@@ -548,55 +560,56 @@ def process_single_chapter(
     """
     print(f"\n>>> 开始处理章节 {chapter_ref}...")
     
-    # 1. 重新获取元素 (防止页面刷新后元素失效)
-    if isinstance(chapter_ref, int):
-        elements, _ = get_chapter_elements(driver)
-        if chapter_ref >= len(elements):
-            print("索引越界，跳过")
-            return False
-        target_chapter = elements[chapter_ref]
-    else:
+    # 1. 点击目录。旧版目录会在进度异步更新时整体重建，因此用稳定引用重试。
+    for click_attempt in range(1, 4):
         try:
-            chapter_row = driver.find_element(By.ID, chapter_ref)
-            target_chapter = chapter_row.find_element(By.TAG_NAME, "a")
+            target_chapter = locate_chapter_link(driver, chapter_ref)
         except NoSuchElementException:
             print(f"未找到章节 {chapter_ref}，跳过")
             return False
 
-    chapter_title = target_chapter.get_attribute("title") or target_chapter.text
-    chapter_href = target_chapter.get_attribute("href")
-
-    try:
-        chapter_row = target_chapter.find_element(
-            By.XPATH, "./ancestor::*[contains(@class,'posCatalog_select') or self::h4 or self::h5][1]"
-        )
-    except NoSuchElementException:
-        chapter_row = target_chapter
-    if catalog_item_is_locked(driver, chapter_row, target_chapter):
-        print(f"  [跳过未解锁] {chapter_title or chapter_ref}")
-        return None
-    
-    # 2. 点击进入章节
-    try:
-        driver.execute_script("arguments[0].scrollIntoViewIfNeeded(true);", target_chapter)
-        time.sleep(1)
-        # 尝试常规点击，失败则使用 JS 点击
         try:
-            target_chapter.click()
-        except:
-            driver.execute_script("arguments[0].click();", target_chapter)
-    except Exception as e:
-        print(f"点击章节失败: {e}")
-        return False
+            chapter_title = target_chapter.get_attribute("title") or target_chapter.text
+            chapter_href = target_chapter.get_attribute("href")
+            answer_set = mapped_answer_set(answers_path, chapter_href)
+            element_mapping_url = None
+            if not answer_set:
+                # Capture chapterId before clicking because navigation rebuilds the catalog.
+                answer_set, element_mapping_url = mapped_answer_from_element(
+                    driver, answers_path, target_chapter
+                )
+
+            try:
+                chapter_row = target_chapter.find_element(
+                    By.XPATH, "./ancestor::*[contains(@class,'posCatalog_select') or self::h4 or self::h5][1]"
+                )
+            except NoSuchElementException:
+                chapter_row = target_chapter
+            if catalog_item_is_locked(driver, chapter_row, target_chapter):
+                print(f"  [跳过未解锁] {chapter_title or chapter_ref}")
+                return None
+
+            driver.execute_script("arguments[0].scrollIntoViewIfNeeded(true);", target_chapter)
+            time.sleep(1)
+            try:
+                target_chapter.click()
+            except WebDriverException as click_error:
+                if isinstance(click_error, StaleElementReferenceException):
+                    raise
+                driver.execute_script("arguments[0].click();", target_chapter)
+            break
+        except StaleElementReferenceException:
+            if click_attempt == 3:
+                print("点击章节失败: 目录持续刷新，重新定位 3 次后元素仍然失效。")
+                return False
+            print(f"  [重试] 点击前目录已更新，重新定位章节 ({click_attempt}/3)...")
+            time.sleep(0.5)
+        except Exception as e:
+            print(f"点击章节失败: {e}")
+            return False
 
     time.sleep(5) # 等待内容加载
 
-    answer_set = mapped_answer_set(answers_path, chapter_href)
-    element_mapping_url = None
-    if not answer_set:
-        answer_set, element_mapping_url = mapped_answer_from_element(
-            driver, answers_path, target_chapter
-        )
     analysis = analyze_current_page(driver, timeout=min(max(answer_wait, 0), 20))
     print(
         "  - 页面分析结果: "
@@ -1183,9 +1196,8 @@ def main():
         profile_path.mkdir(parents=True, exist_ok=True)
         options.add_argument(f'--user-data-dir={profile_path}')
     resolved_driver = find_chromedriver(args.driver)
-    bundled_driver = resolved_driver and Path(__file__).resolve().parent / "tools" in resolved_driver.parents
-    if args.driver or bundled_driver:
-        print(f"使用 ChromeDriver: {resolved_driver}")
+    if resolved_driver:
+        print(f"优先使用本地 ChromeDriver: {resolved_driver}")
     else:
         print("由 Selenium Manager 自动匹配 ChromeDriver。")
 
