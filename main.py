@@ -436,13 +436,36 @@ def mapped_answer_from_element(driver, answers_path, element):
     return None, None
 
 
-def wait_and_refresh(driver, task_name, delay=2):
-    """任务完成后等待并刷新顶层页面，让平台及时更新完成状态。"""
+def wait_for_dom_ready(driver, timeout=10):
+    """Wait for usable DOM state without waiting for persistent network traffic."""
+    try:
+        WebDriverWait(driver, timeout).until(
+            lambda current_driver: current_driver.execute_script("""
+                return !window.__ucasRefreshPending
+                    && ['interactive', 'complete'].includes(document.readyState);
+            """)
+        )
+        return True
+    except TimeoutException:
+        try:
+            driver.execute_script("window.stop();")
+        except WebDriverException:
+            pass
+        return False
+
+
+def wait_and_refresh(driver, task_name, delay=2, ready_timeout=10):
+    """Refresh without waiting indefinitely for long-lived page requests."""
     try:
         driver.switch_to.default_content()
         print(f"    {task_name}已完成，等待 {delay} 秒后刷新页面...")
         time.sleep(delay)
+        driver.execute_script("window.__ucasRefreshPending = true;")
         driver.refresh()
+        if wait_for_dom_ready(driver, timeout=ready_timeout):
+            print("    页面已刷新，继续重新扫描。")
+        else:
+            print(f"    [提示] 刷新等待超过 {ready_timeout} 秒，已停止继续加载并重新扫描。")
         return True
     except Exception as exc:
         print(f"    [停止] {task_name}完成后刷新页面失败: {exc}")
@@ -1150,6 +1173,7 @@ def main():
 
     # 1. 启动浏览器 (只做一次)
     options = webdriver.ChromeOptions()
+    options.page_load_strategy = 'none'
     options.add_argument('--disable-gpu')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--no-sandbox')

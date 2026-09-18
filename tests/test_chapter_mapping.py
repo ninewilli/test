@@ -136,12 +136,29 @@ class ChapterMappingTest(unittest.TestCase):
 
     def test_completed_task_waits_two_seconds_then_refreshes(self):
         driver = Mock()
+        driver.execute_script.side_effect = [None, True]
         with patch.object(main.time, "sleep") as sleep:
             self.assertTrue(main.wait_and_refresh(driver, "视频 1/1"))
 
         driver.switch_to.default_content.assert_called_once_with()
         sleep.assert_called_once_with(2)
         driver.refresh.assert_called_once_with()
+        self.assertEqual(driver.execute_script.call_count, 2)
+
+    def test_refresh_timeout_stops_loading_and_continues(self):
+        driver = Mock()
+        driver.execute_script.side_effect = [None, None]
+        with patch.object(main.time, "sleep"), patch.object(
+            main.WebDriverWait,
+            "until",
+            side_effect=main.TimeoutException(),
+        ):
+            self.assertTrue(
+                main.wait_and_refresh(driver, "PPT 1/1", ready_timeout=0)
+            )
+
+        driver.refresh.assert_called_once_with()
+        driver.execute_script.assert_called_with("window.stop();")
 
     def test_analyzes_quiz_page_from_visible_questions(self):
         html = '<div class="TiMu"><input type="radio">题目一</div>'
