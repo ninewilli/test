@@ -12,6 +12,9 @@
 
 <img width="1680" height="1109" alt="b5eaae119870f2fb585f54a806951a12" src="https://github.com/user-attachments/assets/cc415ce4-8f0b-4715-a6f8-daecaa6ac32c" />
 
+记得勾选这两项
+<img width="531" height="83" alt="6572dc02-c521-4afb-ac31-d0738791554d" src="https://github.com/user-attachments/assets/9c57f911-48df-40a2-9acc-0ad3385705da" />
+
 
 ### 步骤1：环境准备
 
