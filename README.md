@@ -57,31 +57,6 @@ python gui.py
 
 ### Windows 打包
 
-安装 PyInstaller 后执行：
-
-```bash
-python -m PyInstaller --clean --noconfirm ucas-mooc-aq.spec
-```
-
-打包结果位于 `dist`，主程序为 `UCAS-MOOC-Assistant.exe`。请保留同目录下的 `UCAS-MOOC-Worker.exe`，它负责后台执行浏览器自动化。
-
-也可以继续使用命令行：
-
-```bash
-
-# --force 即使没有获取到这个进度条到终止时间，也要进行观看
-python main.py -url XXXX --force
-```
-
-项目内置 `answers.json` 中课程的完整连续处理命令：
-
-```bash
-python main.py --url "课程章节 URL" --force --submit-answers
-```
-
-程序只在传入 `--submit-answers` 时提交测验并继续下一章节。未传入时会填写并暂存当前测验，然后停在该页供人工检查。也可以用 `--answers` 指定其他同格式答案文件。
-
-可用 `--profile-dir .chrome-profile` 保留独立浏览器登录状态；如果无法自动找到浏览器驱动，可用 `--driver "C:\path\to\chromedriver.exe"` 指定。
 
 
 
